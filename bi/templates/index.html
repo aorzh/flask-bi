@@ -37,7 +37,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Cubes Model Browser!</a>
+          <a class="brand" href="#">BI</a>
         </div>
       </div>
     </div>
@@ -47,7 +47,7 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Dimensions</li>
+              <li class="nav-header">Nav header</li>
               {% for dim in dimensions %}
               <li {% if dimension and dim.name == dimension.name %}class="active"{%endif%}>
                 <a href="{{dim.name}}">{{dim.label or dim.name}}</a>
@@ -140,7 +140,7 @@
       <hr>
 
       <footer>
-      <p>Powered by <a href="http://packages.python.org/cubes/">Cubes</a>.</p>
+      <p>Powered by Flask.</p>
       </footer>
 
     </div><!--/.fluid-container-->
