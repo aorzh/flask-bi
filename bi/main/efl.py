@@ -3,7 +3,7 @@ import numpy as np
 from pandas import date_range, Series, DataFrame, read_csv, qcut, merge, concat, TimeGrouper, to_datetime, DatetimeIndex, pivot_table
 import seaborn
 from sqlalchemy import create_engine, MetaData, Table, schema, Integer, Numeric, String, Text, BLOB, desc
-from main.config import Config
+from bi.config import Config
 import phpserialize
 
 
@@ -76,7 +76,7 @@ def prepare_data():
         insert_command.execute(records)
 
 
-def main():
+def top20():
     seaborn.set()
     data = read_csv(Config.STATIC + "/bi3.csv")
     """
@@ -87,11 +87,14 @@ def main():
     """
     depart_arrive = DataFrame(data, columns=['id', 'depart', 'arrive'])
     g = depart_arrive.groupby(['depart', 'arrive']).count().nlargest(20, 'id')
-    g.plot(kind='bar')
-    print(g)
-    plt.show()
+    # g.plot(kind='bar')
+    print(g.to_html())
+    # plt.show()
 
+    return g.to_html()
 
+"""
 if __name__ == '__main__':
     import sys
     sys.exit(main())
+"""
