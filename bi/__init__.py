@@ -13,7 +13,7 @@ app = Flask(__name__,
 
 admin = Admin(app, name='Business Intelligence', template_mode='bootstrap3')
 
-app.config.from_object(config.ProductionConfig)
+app.config.from_object(config.DevelopConfig)
 app.register_blueprint(main, url_prefix='/')
 login_manager = LoginManager()
 login_manager.init_app(app)

@@ -41,14 +41,13 @@
         </div>
       </div>
     </div>
-    {% block container %}{% endblock %}
 
-
-      <hr>
-
-      <footer>
-      <p>Powered by Flask.</p>
-      </footer>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+            {% block container %}{% endblock %}
+        </div><!--/span-->
+      </div><!--/row-->
 
     </div><!--/.fluid-container-->
 

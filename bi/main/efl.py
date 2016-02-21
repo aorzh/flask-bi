@@ -77,7 +77,7 @@ def prepare_data():
 
 
 def top20():
-    seaborn.set()
+    # seaborn.set()
     data = read_csv(Config.STATIC + "/bi3.csv")
     """
     table = data.groupby('depart').size().sort_values(inplace=False, ascending=False)
@@ -87,11 +87,13 @@ def top20():
     """
     depart_arrive = DataFrame(data, columns=['id', 'depart', 'arrive'])
     g = depart_arrive.groupby(['depart', 'arrive']).count().nlargest(20, 'id')
+    print(g)
     # g.plot(kind='bar')
-    print(g.to_html())
+    # print(g.to_html())
     # plt.show()
+    # print(g.to_dict()['id'])
 
-    return g.to_html()
+    return g
 
 """
 if __name__ == '__main__':

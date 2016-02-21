@@ -13,4 +13,22 @@ def index():
 @main.route('top20')
 def top_twenty():
     top = efl.top20()
-    return render_template('frame.html', top=top)
+    string = '['
+    to_d = top.to_dict()['id']
+    for r, a in to_d:
+
+        print(r, a)
+
+        string += '['
+        string += "'"
+        string += str(r)
+        string += "-"
+        string += str(a)
+        string += "'"
+        string += ', '
+        string += str(to_d[r, a])
+        string += '],'
+
+    string += ']'
+
+    return render_template('frame.html', top=string, top_html=top.to_html(classes="table table-striped"))
