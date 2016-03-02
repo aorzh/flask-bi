@@ -13,22 +13,17 @@ def index():
 @main.route('top20')
 def top_twenty():
     top = efl.top20()
+    new_dict = []
+    for ar, dep in top.to_dict()['id']:
+        count_value = top.to_dict()['id'][(ar, dep)]
+        item = [ar + '-' + dep, count_value]
+        new_dict.append(item)
+
     string = '['
     to_d = top.to_dict()['id']
     for r, a in to_d:
-
-        print(r, a)
-
-        string += '['
-        string += "'"
-        string += str(r)
-        string += "-"
-        string += str(a)
-        string += "'"
-        string += ', '
-        string += str(to_d[r, a])
-        string += '],'
+        string += '[' + "'" + str(r) + "-" + str(a) + "'" + ', ' + str(to_d[r, a]) + '],'
 
     string += ']'
-
-    return render_template('frame.html', top=string, top_html=top.to_html(classes="table table-striped"))
+    print(new_dict)
+    return render_template('frame.html', td=new_dict, top=string, top_html=top.to_html(classes="table table-striped"))

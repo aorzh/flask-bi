@@ -1,42 +1,10 @@
 <head>
-    <!--Load the AJAX API-->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-
-        // Load the Visualization API and the corechart package.
-        google.charts.load('current', {'packages': ['corechart']});
-
-        // Set a callback to run when the Google Visualization API is loaded.
-        google.charts.setOnLoadCallback(drawChart);
-
-        // Callback that creates and populates a data table,
-        // instantiates the pie chart, passes in the data and
-        // draws it.
-        function drawChart() {
-
-            // Create the data table.
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Route');
-            data.addColumn('number', 'Count');
-            data.addRows({{ top|safe }});
-
-            // Set chart options
-            var options = {
-                'title': 'Top 20 routes in search',
-                'width': 640,
-                'height': 480
-            };
-
-            // Instantiate and draw our chart, passing in some options.
-            var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-            chart.draw(data, options);
-        }
-    </script>
-</head>
+    <script src="http://www.google.com/jsapi"></script>
+    <script src="{{ url_for('static', filename='js/chartkick.js') }}"></script></head>
 {% include 'index.html' %}
 
 {% block container %}
-    <div id="chart_div"></div>
+    {% column_chart td with library={"title":"Top 20 chart","width":"400px"} %}
     {{ top_html|safe }}
     <!--Div that will hold the pie chart-->
 {% endblock %}
