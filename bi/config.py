@@ -21,8 +21,8 @@ class Config(object):
     STATIC = os.path.join(os.path.dirname(__file__), 'static')
 
     # Flask-Mail settings
-    MAIL_USERNAME = os.getenv('MAIL_USERNAME', 'al.orzh@gmail.com.com')
-    MAIL_PASSWORD = os.getenv('MAIL_PASSWORD', 'orzheshkovsky108')
+    MAIL_USERNAME = os.getenv('MAIL_USERNAME', 'yourmail')
+    MAIL_PASSWORD = os.getenv('MAIL_PASSWORD', 'pass')
     MAIL_DEFAULT_SENDER = os.getenv('MAIL_DEFAULT_SENDER', '"BI dashboard" <noreply@example.com>')
     MAIL_SERVER = os.getenv('MAIL_SERVER', 'smtp.gmail.com')
     MAIL_PORT = int(os.getenv('MAIL_PORT', '465'))
