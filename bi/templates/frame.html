@@ -5,6 +5,5 @@
 
 {% block container %}
     {% column_chart td with library={"title":"Top 20 chart","width":"400px"} %}
-    {{ top_html|safe }}
-    <!--Div that will hold the pie chart-->
+    {% pie_chart td with library={"title":"Top 20 chart (Pie)","width":"400px"} %}
 {% endblock %}
